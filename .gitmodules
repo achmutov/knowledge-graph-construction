@@ -1,0 +1,15 @@
+[submodule "data/rml-core"]
+	path = data/rml-core
+	url = https://github.com/kg-construct/rml-core
+[submodule "data/rml-io"]
+	path = data/rml-io
+	url = https://github.com/kg-construct/rml-io
+[submodule "data/rml-cc"]
+	path = data/rml-cc
+	url = https://github.com/kg-construct/rml-cc
+[submodule "data/rml-fnml"]
+	path = data/rml-fnml
+	url = https://github.com/kg-construct/rml-fnml
+[submodule "data/rml-star"]
+	path = data/rml-star
+	url = https://github.com/kg-construct/rml-star
