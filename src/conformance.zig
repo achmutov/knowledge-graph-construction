@@ -58,25 +58,17 @@ const TestIterator = struct {
 fn parseMetadata(content: []const u8) TestIterator {
     // Find delimiter: \n or \r or \r\n
     const delimiter = blk: {
-        const default = "\n";
         for (content[0..content.len - 1], content[1..content.len]) |a, b| {
             switch (a) {
                 '\n' => break,
-                '\r' => {
-                    switch (b) {
-                        '\n' => {
-                            break :blk "\r\n";
-                        },
-                        else => {
-                            break :blk "\r";
-                        }
-                    }
-                    break :blk default;
+                '\r' => switch (b) {
+                    '\n' => break :blk "\r\n",
+                    else => break :blk "\r",
                 },
-                else => {}
+                else => {},
             }
         }
-        break :blk default;
+        break :blk "\n";
     };
 
     var row_it = std.mem.splitSequence(u8, content, delimiter);
